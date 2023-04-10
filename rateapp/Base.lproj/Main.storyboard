@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="rateapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6I-tB-vzT">
+                                <rect key="frame" x="15" y="747" width="363" height="56"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="zif-UY-8Nw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Rate It Now">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="rateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1JQ-0b-nij"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-0U-AO2">
+                                <rect key="frame" x="30" y="426" width="333" height="25.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhG-UG-YLn">
+                                <rect key="frame" x="115" y="226.66666666666663" width="163" height="179.33333333333337"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="150"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="k6I-tB-vzT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="6Ij-vV-CA2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b2g-0U-AO2" secondAttribute="trailing" constant="30" id="7fw-l5-c4O"/>
+                            <constraint firstItem="b2g-0U-AO2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EUh-j7-Q87"/>
+                            <constraint firstItem="b2g-0U-AO2" firstAttribute="top" secondItem="IhG-UG-YLn" secondAttribute="bottom" constant="20" id="GL3-4C-EFU"/>
+                            <constraint firstItem="IhG-UG-YLn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ODr-3y-aYK"/>
+                            <constraint firstItem="b2g-0U-AO2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Tdq-GB-3IO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k6I-tB-vzT" secondAttribute="trailing" constant="15" id="lZU-jP-na1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="k6I-tB-vzT" secondAttribute="bottom" constant="15" id="yEp-8e-PE9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="desciptionLabel" destination="b2g-0U-AO2" id="831-kR-yBI"/>
+                        <outlet property="emojiLabel" destination="IhG-UG-YLn" id="2gS-QT-MC9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="4"/>
+        </scene>
+        <!--Rate Popup-->
+        <scene sceneID="iRq-Nc-rvY">
+            <objects>
+                <viewController storyboardIdentifier="RatePopup" id="i8R-Ow-Mw5" customClass="RatePopup" customModule="rateapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hfF-q9-RLy">
+                        <rect key="frame" x="0.0" y="0.0" width="345" height="450"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaQ-rA-zS1" customClass="TransparentTitleButton" customModule="rateapp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="374" width="305" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="xIt-9d-xk1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Close"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="closeAction:" destination="i8R-Ow-Mw5" eventType="touchUpInside" id="ecs-wi-nS8"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6J-3f-drA" customClass="StarControl" customModule="rateapp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="125" width="305" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="cha-fd-Ns6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="N6b-gy-eHx"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="N6b-gy-eHx" firstAttribute="trailing" secondItem="eaQ-rA-zS1" secondAttribute="trailing" constant="20" id="JQv-vd-dA7"/>
+                            <constraint firstItem="B6J-3f-drA" firstAttribute="bottom" secondItem="hfF-q9-RLy" secondAttribute="centerY" id="Pt4-Ln-8Uu"/>
+                            <constraint firstItem="N6b-gy-eHx" firstAttribute="bottom" secondItem="eaQ-rA-zS1" secondAttribute="bottom" constant="20" id="WwL-4r-YRv"/>
+                            <constraint firstItem="N6b-gy-eHx" firstAttribute="trailing" secondItem="B6J-3f-drA" secondAttribute="trailing" constant="20" id="XIh-sf-Nqs"/>
+                            <constraint firstItem="B6J-3f-drA" firstAttribute="leading" secondItem="N6b-gy-eHx" secondAttribute="leading" constant="20" id="eEb-dP-6Bt"/>
+                            <constraint firstItem="eaQ-rA-zS1" firstAttribute="leading" secondItem="N6b-gy-eHx" secondAttribute="leading" constant="20" id="kwY-vU-TV8"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="345" height="450"/>
+                    <connections>
+                        <outlet property="closeButton" destination="eaQ-rA-zS1" id="UVk-sx-AK7"/>
+                        <outlet property="rateControl" destination="B6J-3f-drA" id="4xC-g0-11k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDy-90-gqi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838.93129770992368" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
