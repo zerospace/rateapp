@@ -33,7 +33,9 @@ class StarControl: UIView {
         didSet { setNeedsDisplay() }
     }
     
-    @Published private(set) var rateValue: Int = 0 {
+    var valueDidChanged: ((Int) -> Void)?
+    
+    private(set) var rateValue: Int = 0 {
         didSet { setNeedsDisplay() }
     }
     private var rects = [CGRect]()
@@ -78,32 +80,34 @@ class StarControl: UIView {
                     layer.insertSublayer(confetti, at: 0)
                     
                     let groupAnimation = CAAnimationGroup()
-                    groupAnimation.duration = 1.0
+                    groupAnimation.duration = 0.75
                     groupAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
                     var animations = [CAAnimation]()
                     confetti.emitterCells?.forEach {
                         if let name = $0.name {
-                            let anim = CABasicAnimation(keyPath: "emitterCells.\(name).velocity")
-                            anim.fromValue = 0
-                            anim.toValue = 300
-                            anim.duration = 0.25
+                            let anim = CAKeyframeAnimation(keyPath: "emitterCells.\(name).velocity")
+                            anim.values = [0.0, 300.0, 0.0]
+                            anim.keyTimes = [0.0, 0.15, 1.0]
                             animations.append(anim)
                         }
                     }
                     
                     let alphaAnimation = CAKeyframeAnimation(keyPath: "opacity")
                     alphaAnimation.values = [0.0, 1.0, 0.0]
-                    alphaAnimation.keyTimes = [0.0, 0.25, 1.0]
+                    alphaAnimation.keyTimes = [0.0, 0.5, 1.0]
                     animations.append(alphaAnimation)
                     
                     groupAnimation.animations = animations
                     CATransaction.begin()
                     CATransaction.setCompletionBlock {
+                        self.valueDidChanged?(self.rateValue)
                         confetti.removeFromSuperlayer()
                     }
                     confetti.add(groupAnimation, forKey: nil)
                     CATransaction.commit()
+                    return
                 }
+                valueDidChanged?(rateValue)
             }
         }
     }
@@ -113,7 +117,7 @@ class StarControl: UIView {
         let cell = CAEmitterCell()
         cell.name = name
         cell.contents = image?.cgImage
-        cell.birthRate = 200
+        cell.birthRate = 250
         cell.lifetime = 0.5
         cell.lifetimeRange = 0.5
         cell.emissionRange = .pi * 2.0

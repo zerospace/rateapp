@@ -11,9 +11,16 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
     @IBOutlet private weak var emojiLabel: UILabel!
     @IBOutlet private weak var desciptionLabel: UILabel!
     
+    private var result: RateResult = .none {
+        didSet {
+            emojiLabel.text = result.emoji
+            desciptionLabel.text = result.description
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        result = .none
     }
     
     // MARK: - Actions
@@ -22,7 +29,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
             popup.modalPresentationStyle = .custom
             popup.transitioningDelegate = self
             popup.completion = { [weak self] value in
-                self?.emojiLabel.text = value.emoji
+                self?.result = value
             }
             present(popup, animated: true)
         }

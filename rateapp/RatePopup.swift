@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Combine
 
 enum RateResult: Int {
     case none, bad, poor, fine, good, amazing
@@ -17,7 +16,7 @@ enum RateResult: Int {
         case .bad: return "💩"
         case .poor: return "🤮"
         case .fine: return "😐"
-        case .good: return "😍"
+        case .good: return "😎"
         case .amazing: return "🥰"
         }
     }
@@ -25,11 +24,11 @@ enum RateResult: Int {
     var description: String {
         switch self {
         case .none: return ""
-        case .bad: return ""
-        case .poor: return ""
-        case .fine: return ""
-        case .good: return ""
-        case .amazing: return ""
+        case .bad: return "Literally rubbish."
+        case .poor: return "Poor quality."
+        case .fine: return "Just fine."
+        case .good: return "Good, but can be better."
+        case .amazing: return "Lovely experience."
         }
     }
 }
@@ -41,7 +40,6 @@ class RatePopup: UIViewController {
     @IBOutlet private weak var rateControl: StarControl!
     
     private var gradientLayer = CAGradientLayer()
-    private var cancellable: Cancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,19 +52,20 @@ class RatePopup: UIViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
         
         rateControl.backgroundColor = .clear
-        cancellable = rateControl.$rateValue.dropFirst().sink(receiveValue: { [weak self] value in
+        rateControl.valueDidChanged = { [weak self] value in
             DispatchQueue.main.asyncAfter(deadline: .now() + (value >= 4 ? 0.5 : 0.0)) {
                 self?.completion?(RateResult(rawValue: value) ?? .none)
                 self?.dismiss(animated: true)
             }
-        })
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         closeButton.startAnimation(with: 5.0) {
-            self.completion?(.none)
-            self.dismiss(animated: true)
+            if self.rateControl.rateValue == 0 {
+                self.closeAction(self.closeButton)
+            }
         }
     }
     
@@ -77,6 +76,7 @@ class RatePopup: UIViewController {
 
     // MARK: - Actions
     @IBAction private func closeAction(_ sender: UIButton) {
+        completion?(.none)
         dismiss(animated: true)
     }
 }
